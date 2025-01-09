@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    background-color: steelblue;
+    padding: 15px;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 15px;
+}
+
+.navbar-nav {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-item {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item a:hover {
+    background-color: red;
+}
+
+/* Main Content */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.about-info,
+.web-dev-resources {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h2 {
+    text-align: center;
+}
+
+.kal {
+    border-bottom: 1px solid black;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.about-content,
+.uganda-content {
+    display: flex;
+    align-items: center;
+}
+
+.about-text,
+.uganda-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.about-image,
+.uganda-image {
+    flex: 0 0 auto;
+}
+
+.about-image img,
+.uganda-image img {
+    max-width: 100px;
+}
+
+.resource-list {
+    margin: 20px;
+}
+
+.resource-list li {
+    margin-bottom: 10px;
+}
+
+.resource-list a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.resource-list a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
