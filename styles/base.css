@@ -14,7 +14,7 @@ body {
 
 header {
     text-align: center;
-    background-color: steelblue;
+    background-color: darkblue;
     padding: 15px;
     color: white;
 }
@@ -45,7 +45,7 @@ header {
 }
 
 .nav-item a:hover {
-    background-color: red;
+    background-color: #555;
 }
 
 /* Main Content */

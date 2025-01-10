@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth@0,75..100;1,75..100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -18,8 +18,8 @@
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="nav-item"><a href="https://www.linkedin.com/in/ivan-sembatya-4b41b823b/">LinkedIn</a></li>
-            <li class="nav-item"><a href="https://byupw.instructure.com/.">Canvas</a></li>
-            <li class="nav-item"><a href=" https://www.churchofjesuschrist.org/study/scriptures">Scripture</a></li>
+            <li class="nav-item"><a href="https://byupw.instructure.com/">Canvas</a></li>
+            <li class="nav-item"><a href="https://www.churchofjesuschrist.org/study/scriptures">Scripture</a></li>
             <li class="nav-item"><a href="#">Final Project</a></li>
         </ul>
     </nav>
@@ -80,7 +80,7 @@
                         <li><a href="#">CSS Tricks</a></li>
                         <li><a href="#">W3 Schools</a></li>
                         <li><a href="#">Udemy</a></li>
-                        <li><a href="#">Image placeholder</a></li>
+                        <li><a href="#">Additional Resource</a></li>
                     </ul>
                 </div>
             </section>
@@ -88,13 +88,16 @@
     </main>
     <footer>
         <p>
-            &copy;<span id="currentyear"></span> 2025🌹Ivan Sembatya🌹Kampala.
+            &copy;<span id="currentyear"></span> Ivan Sembatya, Kampala.
             <br>
-            Last modification: 09/31/2025/ 14:27:30
+            <span id="lastModified"></span>
             <br>
             Uganda
         </p>
-        <p id="lastModified"></p>
     </footer>
+    <script>
+        document.getElementById('currentyear').textContent = new Date().getFullYear();
+        document.getElementById('lastModified').textContent = `Last modification: ${document.lastModified}`;
+    </script>
 </body>
 </html>
