@@ -1,0 +1,58 @@
+/* temples-large.css - Large screen design */
+@media (min-width: 768px) {
+    /* Align the navigation items to the left */
+    nav ul {
+        justify-content: flex-start; /* Align nav items to the left */
+    }
+
+    main {
+        max-width: 1200px;  
+        margin: 0 auto;  
+    }
+
+    /* Ensure the grid displays 3 columns for larger screens */
+    #temples {
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px; 
+    }
+
+    /* Increase the font size of the main heading */
+    #mainHeading {
+        font-size: 36px;  
+        text-align: center;  
+        margin-top: 20px;  
+    }
+
+    /* Ensure header has a flexible layout */
+    header {
+        display: flex; 
+        justify-content: space-between;
+        align-items: center; 
+        padding: 20px;  
+    }
+
+    nav {
+        display: flex;
+    }
+
+    nav ul {
+        display: flex; 
+        padding: 0; 
+        list-style: none;
+        margin: 0; 
+    }
+
+    nav li {
+        margin: 0 15px;  /* Space out the list items */
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 15px;
+    }
+
+    nav a:hover {
+        background-color: #34495e;  /* Slight background change on hover */
+    }
+}

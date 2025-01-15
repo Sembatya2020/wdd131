@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temples Around the World</title>
+    <!-- Link to CSS files (Mobile-first order) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/temples.css">
+    <link rel="stylesheet" href="styles/temples-large.css">
+    <!-- Include JS file with defer to ensure it loads after HTML is parsed -->
+    <script src="scripts/temples.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Temples Album</h1>
+        <nav>
+            <div id="hamburger">☰</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Old</a></li>
+                <li><a href="#">New</a></li>
+                <li><a href="#">Large</a></li>
+                <li><a href="#">Small</a></li>
+            </ul>
+        </nav>
+    </header>    
+    <!-- Main Section -->
+    <main>
+        <h2 id="mainHeading">Home</h2> <!-- Dynamic heading that could change via JS -->
+        <section id="temples">
+            <!-- Figure Elements with Images and Captions -->
+            <figure>
+                <img src="images/1.jpg" alt="Temple 1">
+                <figcaption>Temple of Heaven, Beijing</figcaption>
+            </figure>
+            <figure>
+                <img src="images/2.jpg" alt="Temple 2">
+                <figcaption>Angkor Wat, Cambodia</figcaption>
+            </figure>
+            <figure>
+                <img src="images/3.jpg" alt="Temple 3">
+                <figcaption>Parthenon, Athens</figcaption>
+            </figure>
+            <figure>
+                <img src="images/4.jpg" alt="Temple 4">
+                <figcaption>Golden Temple, Amritsar</figcaption>
+            </figure>
+            <figure>
+                <img src="images/9.jpg" alt="Temple 5">
+                <figcaption>Kinkaku-ji, Kyoto</figcaption>
+            </figure>
+            <figure>
+                <img src="images/6.jpg" alt="Temple 6">
+                <figcaption>Shwedagon Pagoda, Yangon</figcaption>
+            </figure>
+            <figure>
+                <img src="images/7.jpg" alt="Temple 7">
+                <figcaption>Wat Arun, Bangkok</figcaption>
+            </figure>
+            <figure>
+                <img src="images/8.jpg" alt="Temple 8">
+                <figcaption>Borobudur, Indonesia</figcaption>
+            </figure>
+            <figure>
+                <img src="images/5.jpg" alt="Temple 9">
+                <figcaption>Meiji Shrine, Tokyo</figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Temple Album.Last modified: <span id="lastModified"></span></p>
+    </footer>
+</body>
+</html>
