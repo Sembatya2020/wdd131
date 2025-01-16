@@ -6,11 +6,13 @@ document.getElementById('lastModified').textContent = document.lastModified;
 
 // Select the hamburger icon and the navigation menu
 const hamburger = document.getElementById('hamburger');
-const navMenu = document.querySelector('nav ul');
+const navMenu = document.querySelector('nav');
 
 // Add click event listener to the hamburger icon
 hamburger.addEventListener('click', function() {
-    navMenu.classList.toggle('active');  // Toggle visibility of the menu
-    // Toggle the icon between hamburger (☰) and close (✖)
+    // Toggle the 'active' class on the nav and the hamburger to show the menu and change the icon
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');  // Toggle active state on the hamburger icon
+    // Toggle the icon between ☰ and ✖
     hamburger.textContent = hamburger.textContent === '☰' ? '✖' : '☰';
 });
