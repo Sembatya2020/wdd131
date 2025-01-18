@@ -1,22 +1,36 @@
-// Update the current year dynamically in the footer
-const currentYearElement = document.getElementById("currentyear");
-if (currentYearElement) {
-    currentYearElement.textContent = new Date().getFullYear();
-}
+document.addEventListener("DOMContentLoaded", function () {
+    // Update the current year in the footer
+    document.getElementById("currentyear").textContent = new Date().getFullYear();
 
-// Update the "last modified" date dynamically in the footer
-const lastModifiedElement = document.getElementById("last-modified-date");
-if (lastModifiedElement) {
-    lastModifiedElement.textContent = document.lastModified;
-}
+    // Display last modified date
+    const lastModified = document.lastModified;
+    document.getElementById("lastModified").textContent = "Last Modified: " + lastModified;
+});
 
-// Get the hamburger button and the navigation menu
-const hamburgerButton = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mainNav = document.getElementById("main-nav");
 
-// Add click event listener to toggle the menu
-if (hamburgerButton && navMenu) {
-    hamburgerButton.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
+    // Ensure menu starts hidden only on small screens
+    function checkScreenSize() {
+        if (window.innerWidth >= 768) {
+            mainNav.style.display = "flex"; // Show nav on large screens
+        } else {
+            mainNav.style.display = "none"; // Hide nav on small screens
+        }
+    }
+
+    // Run on page load
+    checkScreenSize();
+
+    // Run whenever window resizes
+    window.addEventListener("resize", checkScreenSize);
+
+    menuToggle.addEventListener("click", function () {
+        if (mainNav.style.display === "none" || mainNav.style.display === "") {
+            mainNav.style.display = "flex"; // Show menu
+        } else {
+            mainNav.style.display = "none"; // Hide menu
+        }
     });
-}
+});
