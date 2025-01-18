@@ -81,6 +81,7 @@ h2 {
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    text-align: center; /* Ensure text is centered below each image */
 }
 
 /* Ensure the images in the gallery are uniform */
@@ -88,14 +89,14 @@ figure {
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    height: 250px; /* Fixed height for uniformity */
-    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack the image and caption vertically */
+    height: 300px; /* Adjust height for better layout */
 }
 
 figure img {
     width: 100%;
-    height: 100%; /* Ensures the images fill their container */
+    height: 70%; /* Image takes up most of the space */
     object-fit: cover;
     object-position: center;
 }
@@ -104,6 +105,9 @@ figcaption {
     padding: 0.5rem;
     color: var(--primary-color);
     background: none; /* No background for the caption */
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center; /* Make sure the caption is centered */
 }
 
 /* Footer */
