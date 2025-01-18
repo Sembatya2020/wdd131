@@ -127,6 +127,7 @@ figcaption {
     text-align: center;
     margin-top: 0.5rem;
     background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1; /* Ensure visibility */
 }
 
 @media screen and (min-width: 1024px) {
