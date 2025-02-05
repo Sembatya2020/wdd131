@@ -2,13 +2,13 @@
 body {
     font-family: "Lora", serif;
     background-color: #F8F9FA;
-    color: #2E7D32;
+    color: #ffff;
     padding: 20px;
 }
 
 /* Header */
 header {
-    background-color: #2E7D32;
+    background-color: #003366;
     color: #FFF;
     text-align: center;
     padding: 15px;
@@ -20,7 +20,7 @@ section {
     margin-bottom: 20px;
     padding: 15px;
     border-bottom: 2px solid #CCC;
-    background: #FFF;
+    background: #003366;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -28,7 +28,7 @@ section {
 /* Headings */
 h1, h2 {
     font-family: "Poppins", sans-serif;
-    color: #2E7D32;
+    color: #FFF;
 }
 
 /* Links */
@@ -48,7 +48,7 @@ img {
 
 /* Footer */
 footer {
-    background-color: #2E7D32;
+    background-color: #003366;
     color: white;
     text-align: center;
     padding: 10px;
