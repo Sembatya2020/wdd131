@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact AfriHarvest-Reach out to us for inquiries or collaboration">
+    <meta name="author" content="AfriHarvest Team">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script defer src="scripts/scripts.js"></script>
+    <title>Contact Us - AfriHarvest</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="navbar" style="background-color: #4CAF50; color: #FFFFFF;">
+            <div class="logo">
+                <img src="images/logo.png" alt="AfriHarvest Logo" loading="lazy">
+            </div>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">&#9776;</button>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="programs.html" class="nav-link">Programs</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear from you! Reach out for inquiries, collaboration, or support.</p>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-container">
+        <h2>Contact Us</h2>
+        <form action="submit_form.php" method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="contact-faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="contact-faq-container">
+            <div class="contact-faq-item">
+                <h3>What services does AfriHarvest provide?</h3>
+                <p>We empower farmers and communities through sustainable agriculture and self-sufficiency programs.</p>
+            </div>
+            <div class="contact-faq-item">
+                <h3>How can I support your mission?</h3>
+                <p>You can support us by donating, volunteering, or partnering with us for community projects.</p>
+            </div>
+            <div class="contact-faq-item">
+                <h3>How do I get involved with AfriHarvest?</h3>
+                <p>Feel free to reach out using the contact form or explore the "Get Involved" section of our website.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #4CAF50; color: #FFFFFF;">
+        <div class="footer-cta">
+            <p>Join AfriHarvest Today.</p>
+            <ul>
+                <li>✓ Empower Farmers</li>
+                <li>✓ Sustainable Agriculture</li>
+                <li>✓ Build Self-Sufficiency</li>
+            </ul>
+            <div class="cta-buttons">
+                <a href="#" class="footer-btn btn-dark">Get Involved →</a>
+                <a href="contact.html" class="footer-btn btn-light">Contact Us →</a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>Our Mission</h4>
+                <ul>
+                    <li><a href="#">Empower Farmers</a></li>
+                    <li><a href="#">Sustainable Agriculture</a></li>
+                    <li><a href="#">Resilient Communities</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Programs</a></li>
+                    <li><a href="#">Our Focus</a></li>
+                    <li><a href="#">Support Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-social-icons">
+            <a href="#" class="social-icon"><img src="images/facebook.png" alt="Facebook" loading="lazy"></a>
+            <a href="#" class="social-icon"><img src="images/instagram.png" alt="Instagram" loading="lazy"></a>
+            <a href="#" class="social-icon"><img src="images/linkedin.png" alt="LinkedIn" loading="lazy"></a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AfriHarvest. All rights reserved. | Developed by Ivan Sembatya</p>
+            <p id="last-modified" class="last-modified"></p>
+            <p><a href="references.html">References</a></p>
+        </div>
+    </footer>    
+</body>
+</html>

@@ -1,0 +1,1038 @@
+/* ==============================
+   Global Variables
+============================== */
+:root {
+    --font-primary: 'Noto Sans', sans-serif;
+    --font-secondary: 'Merriweather', serif;
+
+    /* Colors */
+    --color-primary: #4CAF50; /* Navbar and Footer */
+    --color-secondary: #FAE588; /* Hero Section */
+    --color-accent: #6B4516; /* Darker shade for Buttons and Highlights */
+    --color-background: #FDF8E1; /* Page Background */
+    --color-card-bg: #F8E4A0; /* Darker Feature Card Background */
+    --color-text: #3A2A1D; /* Darker Primary Text Color */
+    --color-hover-bg: #3A2A1D28; /* Hover Background */
+    --color-hover-text: #FFFFFF; /* White Hover Text Color */
+    --color-active-bg: #3A2A1D90; /* More contrast for Active Link Background */
+    --color-team-card-bg1: #F9DC5C; /* Background color for first team card */
+    --color-team-card-bg2: #FAE588; /* Background color for second team card */
+    --color-team-card-bg3: #F8E4A0; /* Background color for third team card */
+}
+
+
+
+/* ==============================
+   Reset
+============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 23rem;/* Reserve space for footer height */
+}
+
+/* ==============================
+   Main Section - Full Screen Mirror BG
+============================== */
+main {
+    flex: 1;
+    /* padding: 2rem; */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.4) 100%);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1; /* Keeps main content above the footer */
+    position: relative;
+}
+
+/* ==============================
+   Navbar
+============================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-primary);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure navbar stays above content */
+    transition: top 0.3s ease-in-out; /* Smooth transition for show/hide */
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+    z-index: 10; /* Ensure it is above the nav menu */
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+}
+
+.nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--color-primary);
+    width: 30%; /* Pop-up menu width */
+    height: auto; /* Height for vertical menu allows all items to fit in */
+    padding: 1rem 1rem;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+    z-index: 20; /* Above other content */
+    transform: translateX(100%); /* Initially hidden */
+    transition: transform 0.3s ease-in-out; /* Smooth slide-in effect */
+}
+
+.nav-menu.active.show {
+    transform: translateX(0); /* Slide-in on toggle */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Active Link Styling */
+.nav-link.active {
+    background-color: var(--color-active-bg);
+    color: var(--color-hover-text);
+}
+
+.nav-link:hover {
+    color: var(--color-hover-text);
+    background-color: var(--color-hover-bg);
+}
+
+/* Hover Effect Styling */
+.hover-effect {
+    position: absolute;
+    background-color: var(--color-hover-bg);
+    border-radius: 5px; /* Rounded corners for hover effect */
+    transition: all 0.5s ease-in-out; /* Smooth transition for hover movement */
+    opacity: 0; /* Initially invisible */
+    pointer-events: none;
+    z-index: 0; /* Place behind navigation links */
+}
+
+/* Hamburger menu only for smaller screens */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu.active.show {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 0.8rem;
+        text-align: center;
+        border-bottom: 1px solid var(--color-hover-bg);
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+}
+
+/* ==============================
+   Main Section
+============================== */
+main {
+    flex: 1; /* Allows main content to push footer to the bottom */
+    z-index: 1; /* Ensure main section scrolls above the footer */
+}
+
+/* ==============================
+   Hero Section
+============================== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    height: 70vh; /* The hero section takes 70% of the viewport height */
+    overflow: hidden;
+    padding-top: 5rem; /* Ensure navbar doesn't overlap hero */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--color-secondary) 20%, rgba(255, 255, 255, 0) 70%);
+    z-index: 1; /* Ensures gradient stays above the image */
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2; /* Ensures text is above the gradient and image */
+    color: var(--color-text);
+    padding: 2rem;
+    max-width: 40%; /* Limits text width */
+}
+
+.hero-text h1 {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--color-accent);
+    color: var(--color-hover-text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: var(--color-text);
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container proportionally */
+    z-index: 0; /* Image stays behind the gradient and text */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .hero-text {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+    }
+}
+
+/* ==============================
+   Features Section
+============================== */
+.features {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.4) 100%); /* More opaque gradient for glass effect */
+    backdrop-filter: blur(10px) saturate(150%); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px) saturate(150%); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light frosted border */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.feature-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.feature-card {
+    background-color: var(--color-card-bg); /* Keeps the individual card background */
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.read-more {
+    text-decoration: none;
+    color: var(--color-accent);
+    font-weight: bold;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+/* ==============================
+   Footer
+============================== */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    z-index: 0; /* Ensure footer stays beneath main content */
+}
+
+/* Add spacing to simulate content scrolling over the footer */
+body::after {
+    content: "";
+    display: block;
+    height: 10rem; /* Matches the footer height */
+}
+
+/* Footer General Styles */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Footer Call-to-Action Section */
+.footer-cta {
+    text-align: center;
+    background-color: rgba(139, 69, 19, 0.5); /* Transparent brown */
+    /* Alternatively, you can use dark green */
+    /* background-color: darkgreen; */
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.footer-cta p {
+    font-size: 1.5rem;
+    font-family: var(--font-secondary);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-cta ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-btn {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-dark {
+    background-color: var(--color-accent);
+    color: #fff;
+}
+
+.btn-dark:hover {
+    background-color: var(--color-text);
+}
+
+.btn-light {
+    background-color: transparent;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+}
+
+.btn-light:hover {
+    background-color: var(--color-hover-bg);
+    color: var(--color-hover-text);
+}
+
+/* Footer Links Section */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer-column {
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--color-hover-text); /* Change to white */
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: var(--color-hover-text); /* Change to white */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-column a:hover {
+    opacity: 1;
+}
+
+/* Social Media Icons */
+.footer-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 6rem; /* Space between icons */
+    margin-bottom: 1rem; /* Adjusted spacing before the line */
+}
+
+.footer-social-icons .social-icon img {
+    width: 30px; /* Icon size */
+    height: 30px;
+    /* filter: brightness(0) sepia(1) saturate(500%) hue-rotate(-10deg); Apply theme color */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease;
+}
+
+.footer-social-icons .social-icon:hover img {
+    transform: scale(1.1); /* Slight zoom effect */
+    filter: brightness(0.6); /* Slightly darken on hover */
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    border-top: 1px solid var(--color-hover-bg);
+    padding-top: 1rem;
+}
+
+.last-modified {
+    font-size: 0.8rem;
+    color: var(--color-text);
+    margin-top: 0.5rem;
+}
+
+/* ==============================
+   Contact Page Specific Styles
+============================== */
+
+/* Contact Hero Section */
+.contact-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color-secondary);
+    padding: 4rem 2rem;
+    margin-top: 5rem; /* Ensures it does not overlap with navbar */
+    position: relative;
+    z-index: 1; /* Maintains layering above the background */
+}
+
+.contact-hero h1 {
+    font-family: var(--font-secondary);
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+.contact-hero p {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact Form Section */
+.contact-form-container {
+    padding: 3rem 2rem;
+    background-color: var(--color-background);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form-container h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border: 1px solid var(--color-hover-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-form .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid var(--color-hover-bg);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--color-text);
+    outline: none;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 4px rgba(170, 118, 12, 0.5);
+}
+
+.contact-form button {
+    padding: 1rem;
+    background-color: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--color-text);
+}
+
+/* Contact FAQ Section */
+.contact-faq {
+    padding: 3rem 2rem;
+    background-color: darkgreen; /* Change background color */
+    position: relative;
+    z-index: 1;
+    text-align: center; /* Center the section */
+}
+
+.contact-faq h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #FFFFFF; /* Change to pure white */
+}
+
+.contact-faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; /* Center the content */
+}
+
+.contact-faq-item {
+    background-color: #fff;
+    padding: 1.5rem;
+    border: 1px solid var(--color-hover-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center; /* Center the content */
+}
+
+.contact-faq-item:hover {
+    transform: translateY(-5px);
+}
+
+.contact-faq-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-accent);
+}
+
+.contact-faq-item p {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+/* Maintain Layering */
+.contact-hero, .contact-form-container, .contact-faq {
+    z-index: 1; /* Ensures sections layer correctly */
+}
+/* ==============================
+   About Page Styles
+============================== */
+
+/* Hero Section */
+.about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Full-screen height */
+    overflow: hidden;
+    padding-top: 5rem; /* Prevents overlap with navbar */
+    z-index: 1;
+}
+
+.about-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--color-secondary) 20%, rgba(255, 255, 255, 0) 70%);
+    z-index: 2; /* Gradient appears above the image */
+}
+
+.about-hero-text {
+    position: relative;
+    z-index: 3; /* Ensures text appears above gradient */
+    color: var(--color-text);
+    padding: 2rem;
+    max-width: 40%;
+}
+
+.about-hero-text h1 {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.about-hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.about-hero-image img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    object-fit: cover; /* Ensures image scales proportionally */
+    z-index: 1; /* Image stays behind the gradient */
+}
+
+/* Responsive Design for About Hero */
+@media screen and (max-width: 768px) {
+    .about-hero {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .about-hero-text {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .about-hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .about-hero-text p {
+        font-size: 1rem;
+    }
+
+    .about-hero-image img {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+    }
+}
+
+/* ==============================
+   About History Section
+============================== */
+
+.about-history {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.about-history h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.about-history p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+}
+
+.about-history-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.about-icon {
+    width: 80px; /* Fixed width */
+    height: 80px; /* Fixed height */
+    background-color: var(--color-hover-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Circular background */
+    overflow: hidden; /* Ensures content stays within circle */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.about-icon:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.about-icon img {
+    width: 100%; /* Ensures image fills the container */
+    height: 100%;
+    object-fit: contain; /* Image scales proportionally without distortion */
+    object-position: center; /* Keeps the focus centered */
+}
+
+
+/* ==============================
+   About Team Section
+============================== */
+
+.about-team {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: var(--color-background);
+}
+
+.about-team-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    gap: 2rem; /* Spacing between team cards */
+    justify-content: center;
+}
+
+.about-team-card {
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    max-width: 300px; /* Limits the width of the card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    transition: transform 0.3s ease; /* Hover effect for depth */
+    background-color: black; /* Change background color to black */
+}
+
+.about-team-card:nth-child(1) {
+    background-color: var(--color-team-card-bg1);
+}
+
+.about-team-card:nth-child(2) {
+    background-color: var(--color-team-card-bg2);
+}
+
+.about-team-card:nth-child(3) {
+    background-color: var(--color-team-card-bg3);
+}
+
+.about-team-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.about-team-img {
+    width: 120px; /* Designated size for images */
+    height: 120px; /* Fixed height */
+    margin: 0 auto 1rem; /* Center the image and add spacing */
+    border-radius: 50%; /* Circular shape */
+    overflow: hidden; /* Ensures image fits inside circular border */
+    background-color: var(--color-hover-bg); /* Fallback background color */
+}
+
+.about-team-img img {
+    width: 100%; /* Makes the image fill the container */
+    height: 100%;
+    object-fit: cover; /* Ensures the image scales proportionally without distortion */
+    object-position: center; /* Focuses the center of the image */
+}
+
+.about-team-name {
+    font-family: var(--font-secondary);
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.about-team-card p {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin: 0;
+}
+/* ==============================
+   About FAQ Section
+============================== */
+
+.about-faq {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: darkgreen; /* Change background color */
+    text-align: center; /* Center the section */
+}
+
+.about-faq h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #FFFFFF; /* Change to pure white */
+}
+
+.about-faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; /* Center the content */
+}
+
+.about-faq-item {
+    text-align:center;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center; /* Center the content */
+}
+
+.about-faq-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.about-faq-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-accent);
+}
+
+.about-faq-item p {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+
+/* ==============================
+   Programs Page Highlights Section
+============================== */
+.programs-highlights {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: var(--color-background);
+}
+
+.program-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.program-card {
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.program-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.program-card h3 {
+    margin: 1rem 0;
+    font-size: 1.3rem;
+    color: var(--color-accent);
+}
+
+.program-card p {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.program-card .read-more {
+    text-decoration: none;
+    color: var(--color-accent);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.program-card .read-more:hover {
+    color: var(--color-text);
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: var(--color-secondary);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+}
+
+.testimonial-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.testimonial {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+.testimonial h4 {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--color-accent);
+}
+
+/* Video Section */
+.program-video {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: var(--color-card-bg);
+    margin: 2rem auto;
+}
+
+.program-video h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.program-video p {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    width: 100%;
+    max-width: 560px; /* Ensures the video doesn't stretch on large screens */
+    height: 315px;
+    border-radius: 8px; /* Optional: adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+
