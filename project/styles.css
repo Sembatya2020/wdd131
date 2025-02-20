@@ -46,10 +46,16 @@ img {
     border-radius: 5px;
 }
 
+/* Navbar */
+.navbar {
+    background-color: #4CAF50;
+    color: #FFFFFF;
+}
+
 /* Footer */
 footer {
-    background-color: #003366;
-    color: white;
+    background-color: #4CAF50;
+    color: #FFFFFF;
     text-align: center;
     padding: 10px;
     border-radius: 5px;

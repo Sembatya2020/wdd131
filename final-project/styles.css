@@ -104,11 +104,42 @@ img {
 
 /* Footer */
 footer {
-    background-color: #4CAF50; /* Updated to green */
+    background-color: #388E3C; /* Updated to a darker green */
     color: #FFFFFF; /* Updated text color for better contrast */
     text-align: center;
     padding: 1rem;
     width: 100%;
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    background-color: #4CAF50; /* Ensure background color is consistent */
+    color: #FFFFFF; /* Ensure text color has sufficient contrast */
+}
+
+.footer-links h4 {
+    color: #FFFFFF; /* Ensure heading color has sufficient contrast */
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 0.5rem 0;
+}
+
+.footer-links ul li a {
+    color: #FFFFFF; /* Ensure link color has sufficient contrast */
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
