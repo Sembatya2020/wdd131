@@ -177,3 +177,8 @@ img[loading="lazy"] {
 img[loading="lazy"].loaded {
     opacity: 1;
 }
+
+/* Hover Effect */
+.hover-effect {
+    pointer-events: none;
+}
